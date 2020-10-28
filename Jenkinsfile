@@ -34,6 +34,6 @@ def clone_repos(repos) {
     sh 'rm -rf ./tmp && mkdir ./tmp && cd ./tmp'
     repos.each { repo ->
         sh "git clone ${repo}"
-        sh 'ls -al'
+        sh 'cat ./micro-frontend/src/frontends/frontend/index.js'
     }
 }
