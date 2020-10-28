@@ -11,7 +11,9 @@ pipeline {
 
   stages {
     stage('Clone repos') {
-      clone_repos(repos)
+      steps {
+          clone_repos(repos)
+      }
     }
 
     // stage('Test') {
