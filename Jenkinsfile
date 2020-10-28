@@ -13,11 +13,9 @@ pipeline {
     stage('Clone repos') {
       steps {
           sh 'rm -rf tmp && mkdir tmp && cd tmp'
-          sh 'pwd'
-          sh 'git clone https://github.com/amyroniuk/micro-frontend.git'
-          sh 'pwd'
-          sh 'ls'
-          sh 'cat micro-frontend/src/frontends/frontend/index.js'
+          dir('tmp') {
+            clone_repos(repos)
+          }
       }
     }
 
@@ -36,11 +34,9 @@ pipeline {
 }
 
 def clone_repos(repos) {
-    sh 'rm -rf tmp && mkdir tmp && cd tmp'
     sh 'pwd'
     repos.each { repo ->
         sh "git clone ${repo}"
-        sh 'pwd'
         sh 'ls'
         sh 'cat ./micro-frontend/src/frontends/frontend/index.js'
     }
