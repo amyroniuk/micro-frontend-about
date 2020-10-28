@@ -1,3 +1,7 @@
+repos = [
+    'https://github.com/amyroniuk/micro-frontend.git'
+]
+
 pipeline {
   agent any
 
@@ -6,16 +10,8 @@ pipeline {
   }
 
   stages {
-    stage('Read manifest') {
-      steps {
-        script {
-            def props = readJSON file: 'manifest.json'
-            // echo "${props.frontends[0].repo}"
-            props.frontends.each { key, value ->
-                echo "${value}"
-            }
-        }
-      }
+    stage('Clone repos') {
+      clone_repos(repos)
     }
 
     // stage('Test') {
@@ -30,4 +26,11 @@ pipeline {
     //   }
     // }
   }
+}
+
+def clone_repos(repos) {
+    rm -rf ./tmp && mkdir ./tmp
+    repos.each { repo ->
+        echo "${repo}"
+    }
 }
