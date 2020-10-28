@@ -28,3 +28,5 @@ for file in *; do
         echo "export { default as $file } from './$file'" >> index.js
    fi
 done
+
+rm -rf ./tmp
