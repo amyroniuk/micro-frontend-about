@@ -20,6 +20,8 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Frontends from './src/frontends'
+
 const App: () => React$Node = () => {
   return (
     <>
@@ -32,6 +34,18 @@ const App: () => React$Node = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Core Update</Text>
             </View>
+          </View>
+          <View>
+            {
+              Object.entries(Frontends).map(([key, Fe]) => {
+                return (
+                  <View key={key}>
+                    <Text>{key}</Text>
+                    <Fe/>
+                  </View>
+                )
+              })
+            }
           </View>
         </ScrollView>
       </SafeAreaView>
