@@ -1,0 +1,7 @@
+{
+    "frontends": [
+        {
+            "repo": "https://github.com/amyroniuk/micro-frontend.git"
+        }
+    ]
+}
