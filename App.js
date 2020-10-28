@@ -22,7 +22,7 @@ import {
 
 import Frontends from './src/frontends'
 
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
