@@ -2,6 +2,9 @@
 
 repos=('https://github.com/amyroniuk/micro-frontend.git')
 
+work_dir=$(pwd)
+echo "Here: $work_dir"
+
 echo "Clone microfrontend repos"
 rm -rf ./tmp && mkdir ./tmp && cd ./tmp
 for repo in $repos; do
@@ -29,4 +32,5 @@ for file in *; do
    fi
 done
 
-rm -rf ./tmp
+cd $work_dir
+rm -rf tmp
