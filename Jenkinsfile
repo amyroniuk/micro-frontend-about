@@ -29,7 +29,7 @@ pipeline {
 }
 
 def clone_repos(repos) {
-    rm -rf ./tmp && mkdir ./tmp
+    sh 'rm -rf ./tmp && mkdir ./tmp'
     repos.each { repo ->
         echo "${repo}"
     }
