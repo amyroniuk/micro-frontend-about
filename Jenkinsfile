@@ -12,7 +12,12 @@ pipeline {
   stages {
     stage('Clone repos') {
       steps {
-          clone_repos(repos)
+          sh 'rm -rf tmp && mkdir tmp && cd tmp'
+          sh 'pwd'
+          sh 'git clone https://github.com/amyroniuk/micro-frontend.git'
+          sh 'pwd'
+          sh 'ls'
+          sh 'cat micro-frontend/src/frontends/frontend/index.js'
       }
     }
 
