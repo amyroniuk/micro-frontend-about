@@ -32,8 +32,11 @@ pipeline {
 
 def clone_repos(repos) {
     sh 'rm -rf ./tmp && mkdir ./tmp && cd ./tmp'
+    sh 'pwd'
     repos.each { repo ->
         sh "git clone ${repo}"
+        sh 'pwd'
+        sh 'ls'
         sh 'cat ./micro-frontend/src/frontends/frontend/index.js'
     }
 }
