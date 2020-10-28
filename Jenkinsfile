@@ -10,10 +10,10 @@ pipeline {
       steps {
         script {
             def props = readJSON file: 'manifest.json'
-            echo "${props.frontends[0].repo}"
-            // manifest.frontends.each { key, value ->
-            //     echo "${value.repo}"
-            // }
+            // echo "${props.frontends[0].repo}"
+            props.frontends.each { key, value ->
+                echo "${value}"
+            }
         }
       }
     }
