@@ -20,7 +20,7 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Frontends from './src/frontends'
+import * as Frontends from './src/frontends'
 
 const App = () => {
   return (

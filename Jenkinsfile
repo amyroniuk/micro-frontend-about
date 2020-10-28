@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Clone repos') {
       steps {
-          sh 'rm -rf tmp && mkdir tmp && cd tmp'
+          sh 'rm -rf ./tmp && mkdir ./tmp'
           dir('tmp') {
             clone_repos(repos)
           }

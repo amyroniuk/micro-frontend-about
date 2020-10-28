@@ -1,7 +1,1 @@
-// import Frontend from './frontend'
-
-// export default {
-//     Frontend,
-// };
-
-export default {};
+export { default as Template } from './Template'
