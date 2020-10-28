@@ -9,10 +9,11 @@ pipeline {
     stage('Read manifest') {
       steps {
         script {
-            def manifest = readJSON file: './manifest.json'
-            manifest.frontends.each { key, value ->
-                echo "${value.repo}"
-            }
+            def props = readJSON file: 'manifest.json'
+            echo "${props.frontends[0].repo}"
+            // manifest.frontends.each { key, value ->
+            //     echo "${value.repo}"
+            // }
         }
       }
     }
