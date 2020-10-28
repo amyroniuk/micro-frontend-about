@@ -31,7 +31,7 @@ pipeline {
 }
 
 def clone_repos(repos) {
-    sh 'rm -rf ./tmp && mkdir ./tmp && cd ./tmp'
+    sh 'rm -rf tmp && mkdir tmp && cd tmp'
     sh 'pwd'
     repos.each { repo ->
         sh "git clone ${repo}"
