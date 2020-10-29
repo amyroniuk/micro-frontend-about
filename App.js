@@ -10,24 +10,27 @@ import 'react-native-gesture-handler';
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import Routes from './src/core/routes';
+import Dashboard from './src/core/features/dashboard/Dashboard';
 
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Dashboard" component={Dashboard} />
         {Routes.map((route) => (
-          <Stack.Screen
-            key={route.name}
-            name={route.name}
+          <Drawer.Screen
+            key={route.route}
+            name={route.route}
             component={route.component}
+            options={{drawerLabel: route.name}}
           />
         ))}
-      </Stack.Navigator>
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };
