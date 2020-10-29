@@ -1,14 +1,41 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {Button, View, Text} from 'react-native';
 
-const Frontend = () => {
-    return (
-        <>
-            <View>
-                <Text>This is a template of microfrontend</Text>
-            </View>
-        </>
-    );
+const Frontend = ({navigation}) => {
+  return (
+    <>
+      <View>
+        <Text>This is a template of microfrontend</Text>
+        <Button
+          title="Frontend Template Child page"
+          onPress={() => navigation.navigate('TemplateFrontendChild')}
+        />
+      </View>
+    </>
+  );
 };
 
-export default Frontend;
+const FrontendChildScreen = () => {
+  return (
+    <>
+      <View>
+        <Text>This is a microfrontend child screen</Text>
+      </View>
+    </>
+  );
+};
+
+const Routes = [
+  {
+    name: 'Frontend Template Home',
+    route: 'TemplateFrontend',
+    component: Frontend,
+  },
+  {
+    name: 'Frontend Template Child',
+    route: 'TemplateFrontendChild',
+    component: FrontendChildScreen,
+  },
+];
+
+export default Routes;
