@@ -11,12 +11,8 @@ const About = () => {
     );
 };
 
-const Routes = [
-    {
-        name: 'About',
-        route: 'About',
-        component: About,
-    },
-];
-
-export default Routes;
+export default {
+    name: 'About',
+    route: 'About',
+    component: About,
+  };
